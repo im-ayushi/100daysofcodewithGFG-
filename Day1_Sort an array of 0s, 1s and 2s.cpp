@@ -4,27 +4,27 @@ Expected Auxiliary Space: O(1)
 
 
 
-void sort012(int a[], int arr_size)
+class Solution
 {
-	int lo = 0;
-	int hi = arr_size - 1;
-	int mid = 0;
-
-	
-	while (mid <= hi) {
-            if(a[mid]==0)
-			    swap(a[lo++], a[mid++]);
-		    if(a[mid]==1)
-			     mid++;
-			if(a[mid]==2)
-			    swap(a[mid], a[hi--]);
-		
-		
-	}
-}
-
-
-
-
-
-
+    public:
+    void sort012(int a[], int n)
+    {
+        int p=0,q=0,r=0;
+        for(int i=0;i<n;i++)
+        {
+            if(a[i]==0)
+                p+=1;
+            else if(a[i]==1)
+                q+=1;
+            else
+                r +=1;
+        }
+        for (int i=0; i<p; i++)
+           a[i] = 0;
+        for (int i=p; i<p+q; i++)
+           a[i] = 1;
+        for (int i=p+q; i<p+q+r; i++)
+           a[i] = 2;
+       
+    }
+};
